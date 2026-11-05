@@ -1,16 +1,13 @@
-# Rental Intelligence Group — Prospecting Microsite
+# Propoly × {Company} — Prospecting Microsite
 
-Single-page "book a call" site for letting agents, in RIG brand colours
-(navy `#071A26`, cream `#FFFDF8`, gold `#B99555`, slate `#657378`; Newsreader + Inter).
+One-page "book a call" site for letting agents, in Rental Intelligence Group colours.
+First screen: Propoly × agency logos, the video, and a book-a-call button.
 
-## Edit
-- **Booking link:** `BOOKING_URL` near the bottom of `index.html` (currently Dale's 15-minute call: propoly.com/dale).
-- **Video:** set `VIDEO_URL` (YouTube, Vimeo, Loom or .mp4 link) next to `BOOKING_URL`. Empty shows a "coming soon" placeholder.
-- **Colours/fonts:** CSS variables at the top of `index.html`.
-- **Proof section:** placeholder box ready for case studies / logos.
+## Edit (top of the `<script>` at the bottom of `index.html`)
+- `COMPANY_NAME` — the agency's name. On the live site you can also add `?company=Agency%20Name` to the URL, so one site works for every prospect.
+- `COMPANY_LOGO` — path to their logo (e.g. put files in `logos/`). Falls back to the name, then a "Your logo here" placeholder.
+- `BOOKING_URL` — currently Dale's 15-minute call: propoly.com/dale.
+- `VIDEO_URL` — YouTube, Vimeo, Loom or direct `.mp4` link. Empty shows a "coming soon" placeholder.
 
 ## Run
-Open `index.html` in a browser — no build step. Deploys as-is to GitHub Pages, Netlify or Vercel.
-
-## Notes
-Logos and award images currently load from riggroup.co.uk. Swap for local copies in `assets/` before going live.
+Open `index.html` in a browser. No build step. Deploys as-is to GitHub Pages (Settings → Pages → `main` / root).

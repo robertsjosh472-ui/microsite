@@ -2,167 +2,118 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rental Intelligence Group | Book a call</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Propoly × Your Agency | Book a call</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Propoly, LegalforLandlords and Landlord Lounge — one connected journey across the rental relationship. Book a call with Rental Intelligence Group.">
+<meta name="description" content="A short video and a 15-minute call: how Propoly can take the chasing and admin out of tenancy progression.">
 <link rel="icon" href="https://riggroup.co.uk/wp-content/themes/RIGTheme/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <style>
-  /* ============ EDIT HERE ============ */
-  /* Booking link lives in the <script> at the bottom: BOOKING_URL */
+  /* Layout: one navy opening screen (logos, headline, video, CTA), then a short cream proof strip and a closing CTA. */
   :root {
     color-scheme: light;
     --navy: #071A26;      /* RIG primary dark */
     --navy-2: #0E2A3B;
     --cream: #FFFDF8;     /* RIG background */
-    --sand: #F4EFE4;
     --gold: #B99555;      /* RIG accent */
-    --gold-dark: #9A7A40;
+    --gold-hi: #CBA86A;
     --slate: #657378;     /* RIG body text */
     --ink: #071A26;
-    --line: rgba(7, 26, 38, .12);
+    --on-navy: rgba(255,255,255,.78);
+    --on-navy-dim: rgba(255,255,255,.5);
+    --line: rgba(7,26,38,.12);
+    --line-navy: rgba(255,255,255,.12);
     --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
     --sans: "Inter", ui-sans-serif, -apple-system, "Segoe UI", Arial, sans-serif;
-    --max: 1160px;
+    --max: 1080px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--navy); }
   body { margin: 0; background: var(--cream); color: var(--slate); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
   img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--ink); margin: 0; line-height: 1.1; letter-spacing: -.01em; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--ink); margin: 0; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
   .wrap { max-width: var(--max); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
-  .eyebrow { font: 600 12px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 18px; }
-  section { padding: 104px 0; }
 
-  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; font: 600 15px/1 var(--sans); text-decoration: none; border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s; cursor: pointer; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; font: 600 15px/1 var(--sans); text-decoration: none; transition: background .2s; }
   .btn-gold { background: var(--gold); color: var(--navy); }
-  .btn-gold:hover { background: #CBA86A; }
-  .btn-dark { background: var(--navy); color: #fff; }
-  .btn-dark:hover { background: var(--navy-2); }
-  .btn-ghost { border-color: rgba(255,255,255,.4); color: #fff; }
-  .btn-ghost:hover { border-color: #fff; }
+  .btn-gold:hover { background: var(--gold-hi); }
+  .btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
-  /* Nav */
-  .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.08); }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-  .nav-logo img { height: 34px; width: auto; }
-  .nav-logo .fallback { font-family: var(--serif); color: #fff; font-size: 20px; text-decoration: none; }
-  .nav .btn { padding: 12px 20px; font-size: 14px; }
+  /* Top bar */
+  .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--navy); border-bottom: 1px solid var(--line-navy); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav img { height: 28px; width: auto; }
+  .nav .wordmark { font: 400 18px/1 var(--serif); color: #fff; }
+  .nav .btn { padding: 11px 18px; font-size: 14px; }
 
-  /* Hero */
-  .hero { background: var(--navy); color: rgba(255,255,255,.78); padding: 120px 0 112px; position: relative; overflow: hidden; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 85% 20%, rgba(185,149,85,.18), transparent 70%); pointer-events: none; }
-  .hero .wrap { position: relative; z-index: 1; }
-  .hero h1 { color: #fff; font-size: clamp(44px, 7.5vw, 96px); max-width: 12ch; }
+  /* Opening screen */
+  .hero { background: var(--navy); color: var(--on-navy); padding-block: 56px 88px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 60% at 85% 0%, rgba(185,149,85,.16), transparent 70%); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; display: grid; gap: 36px; justify-items: center; text-align: center; }
+
+  .lockup { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .lockup .x { font: 300 36px/1 var(--sans); color: var(--gold); }
+  .logo-slot { height: 56px; display: flex; align-items: center; }
+  .logo-slot img { max-height: 56px; width: auto; }
+  .logo-slot .wordmark { font: 500 34px/1 var(--serif); color: #fff; }
+  .logo-slot.pending { border: 1px dashed var(--gold); padding: 0 20px; font: 500 15px/1 var(--sans); color: var(--gold); }
+
+  .hero h1 { color: #fff; font-size: clamp(34px, 5vw, 58px); max-width: 20ch; }
   .hero h1 em { font-style: italic; color: var(--gold); }
-  .hero p.lead { font-size: clamp(18px, 2vw, 22px); max-width: 600px; margin: 28px 0 40px; }
-  .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
-  .hero-meta { margin-top: 72px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid rgba(255,255,255,.12); padding-top: 32px; }
-  .hero-meta span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
-  .hero-meta img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: .85; }
 
-  /* Video */
-  .video { padding-block: 96px; }
-  .video-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
-  .video-head h2 { font-size: clamp(32px, 4vw, 46px); max-width: 18ch; text-wrap: balance; }
-  .video-head p { max-width: 420px; margin: 0; }
-  .video-frame { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--navy); border: 1px solid var(--line); overflow: hidden; }
+  .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: #000; border: 1px solid var(--line-navy); overflow: hidden; }
   .video-frame iframe, .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
-  .video-empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; color: rgba(255,255,255,.7); padding: 24px; background: radial-gradient(70% 90% at 80% 10%, rgba(185,149,85,.2), transparent 70%), var(--navy); }
-  .video-empty .play { width: 76px; height: 76px; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; }
+  .video-empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 16px; padding: 24px; background: var(--navy-2); color: var(--on-navy); }
+  .video-empty .play { width: 72px; height: 72px; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; }
   .video-empty .play::before { content: ""; border-left: 20px solid var(--gold); border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 6px; }
-  .video-empty b { font: 400 24px/1.2 var(--serif); color: #fff; }
-  .video-empty small { font-size: 14px; }
+  .video-empty b { font: 400 22px/1.2 var(--serif); color: #fff; }
 
-  /* Problem */
-  .problem .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
-  .problem h2 { font-size: clamp(34px, 4.5vw, 52px); }
-  .problem p { margin: 0 0 18px; }
-  .stat { border-left: 2px solid var(--gold); padding: 4px 0 4px 28px; margin-bottom: 36px; }
-  .stat b { display: block; font: 400 clamp(56px, 7vw, 84px)/1 var(--serif); color: var(--ink); }
-  .stat small { display: block; margin-top: 10px; font-size: 15px; }
-  .bars { display: grid; gap: 14px; }
-  .bar { font-size: 14px; }
-  .bar div { display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--ink); }
-  .bar i { display: block; height: 6px; background: var(--sand); }
-  .bar i::before { content: ""; display: block; height: 100%; width: var(--w); background: var(--gold); }
-  .src { font-size: 12px; margin-top: 18px; opacity: .8; }
+  .hero-cta { display: grid; gap: 12px; justify-items: center; }
+  .hero-cta small { font-size: 14px; color: var(--on-navy-dim); }
 
-  /* Journey */
-  .journey { background: var(--sand); }
-  .journey-head { max-width: 720px; margin-bottom: 56px; }
-  .journey h2 { font-size: clamp(34px, 4.5vw, 52px); }
-  .journey-head p { margin: 18px 0 0; }
-  .phase { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 40px 0; border-top: 1px solid var(--line); }
-  .phase h3 { font-size: 30px; }
-  .phase h3 em { color: var(--gold); }
-  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-  .stage { background: var(--cream); padding: 26px 22px; }
-  .stage .n { font: 500 13px/1 var(--sans); color: var(--gold); letter-spacing: .1em; }
-  .stage h4 { font-size: 21px; margin: 14px 0 10px; }
-  .stage p { font-size: 14px; line-height: 1.55; margin: 0; }
-  .keys-note { text-align: center; font: italic 400 22px/1.4 var(--serif); color: var(--ink); padding: 40px 0 0; border-top: 1px solid var(--line); }
+  /* Proof strip */
+  .proof { padding-block: 88px; }
+  .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .point { background: #fff; padding: 28px 26px; min-width: 0; }
+  .point h3 { font-size: 22px; margin-bottom: 8px; }
+  .point p { margin: 0; font-size: 15px; }
+  .evidence { display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; margin-top: 64px; align-items: center; }
+  .stat b { display: block; font: 400 clamp(56px, 7vw, 80px)/1 var(--serif); color: var(--ink); }
+  .stat p { margin: 10px 0 0; font-size: 15px; max-width: 32ch; }
+  .stat small { display: block; margin-top: 8px; font-size: 12px; }
+  .quotes { display: grid; gap: 28px; }
+  .quotes blockquote { margin: 0; padding-left: 24px; border-left: 2px solid var(--gold); }
+  .quotes q { font: 400 24px/1.3 var(--serif); color: var(--ink); quotes: "“" "”"; }
+  .quotes cite { display: block; margin-top: 8px; font: 400 14px/1.4 var(--sans); font-style: normal; }
 
-  /* Group */
-  .group h2 { font-size: clamp(34px, 4.5vw, 52px); max-width: 16ch; }
-  .group-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
-  .group-head p { max-width: 440px; margin: 0; }
-  .brands { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .brand { border: 1px solid var(--line); padding: 40px; background: #fff; display: flex; flex-direction: column; }
-  .brand .logo { height: 44px; display: flex; align-items: center; margin-bottom: 28px; }
-  .brand .logo img { max-height: 44px; width: auto; }
-  .brand .logo .wordmark { font: 500 26px/1 var(--serif); color: var(--ink); }
-  .hero-meta .wordmark { font: 500 20px/1 var(--serif); color: rgba(255,255,255,.85); }
-  .brand .tag { font: 600 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-  .brand h3 { font-size: 26px; margin-bottom: 14px; }
-  .brand p { margin: 0 0 20px; font-size: 16px; }
-  .brand ul { margin: auto 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
-  .brand li { font-size: 13px; padding: 6px 12px; background: var(--sand); color: var(--ink); }
-  .brand.astra { background: var(--navy); border-color: var(--navy); color: rgba(255,255,255,.75); }
-  .brand.astra h3, .brand.astra .wordmark { color: #fff; }
-  .brand.astra li { background: rgba(255,255,255,.08); color: #fff; }
+  /* Close */
+  .close { background: var(--navy); color: var(--on-navy); text-align: center; padding-block: 88px; }
+  .close h2 { color: #fff; font-size: clamp(32px, 4.5vw, 52px); }
+  .close p { margin: 16px auto 32px; max-width: 46ch; }
 
-  /* Proof (placeholder) */
-  .proof { background: var(--sand); }
-  .proof .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
-  .quote { font: 400 clamp(28px, 3.6vw, 42px)/1.25 var(--serif); color: var(--ink); margin: 0; }
-  .quote-by { margin-top: 20px; font-size: 15px; }
-  .awards { display: flex; gap: 20px; justify-content: center; }
-  .awards img { width: 150px; height: auto; }
-  .placeholder { border: 1px dashed var(--gold); padding: 22px; font-size: 14px; text-align: center; margin-top: 36px; grid-column: 1 / -1; color: var(--gold-dark); }
-
-  /* CTA */
-  .cta { background: var(--navy); color: rgba(255,255,255,.78); text-align: center; }
-  .cta h2 { color: #fff; font-size: clamp(38px, 5.5vw, 68px); max-width: 16ch; margin: 0 auto; }
-  .cta p { max-width: 560px; margin: 24px auto 40px; font-size: 19px; }
-  .cta ul { list-style: none; padding: 0; margin: 40px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; font-size: 15px; }
-  .cta li::before { content: "✓"; color: var(--gold); margin-right: 8px; }
-
-  footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.5); font-size: 13px; padding: 32px 0; }
-  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+  footer { background: var(--navy); border-top: 1px solid var(--line-navy); color: var(--on-navy-dim); font-size: 13px; padding-block: 24px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  footer a { color: var(--on-navy); text-decoration: none; }
 
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-  @media (max-width: 960px) {
-    .problem .grid, .proof .grid { grid-template-columns: 1fr; gap: 48px; }
-    .phase { grid-template-columns: 1fr; gap: 20px; }
-    .stages { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 820px) {
+    .points, .evidence { grid-template-columns: 1fr; }
+    .evidence { gap: 40px; }
   }
-  @media (max-width: 640px) {
+  @media (max-width: 560px) {
     body { font-size: 16px; }
     .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-    section { padding: 72px 0; }
-    .hero { padding: 80px 0 72px; }
-    .nav .btn span.long { display: none; }
-    .stages, .brands { grid-template-columns: 1fr; }
-    .brand { padding: 28px; }
-    .awards img { width: 120px; }
+    .hero { padding-block: 40px 64px; }
+    .lockup { gap: 16px; }
+    .lockup .x { font-size: 28px; }
+    .logo-slot { height: 40px; }
+    .logo-slot img { max-height: 40px; }
+    .logo-slot .wordmark { font-size: 26px; }
+    .nav .wordmark { font-size: 15px; }
+    .proof, .close { padding-block: 64px; }
   }
 </style>
 </head>
@@ -170,203 +121,103 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="nav-logo" href="#top" aria-label="Rental Intelligence Group">
-      <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/rig-logo-white.svg" alt="Rental Intelligence Group" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Rental Intelligence Group'}))">
-    </a>
-    <a class="btn btn-gold js-book" href="#book">Book a call<span class="long">&nbsp;→</span></a>
+    <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/rig-logo-white.svg" alt="Rental Intelligence Group" data-wordmark="Rental Intelligence Group">
+    <a class="btn btn-gold js-book" href="#book">Book a call</a>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
+<main>
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow">For letting agents</p>
-      <h1>Before the keys. <em>Beyond the keys.</em></h1>
-      <p class="lead">One connected journey from application to possession. Tenancy operations, specialist referencing, protection and legal expertise — brought together under Rental Intelligence Group.</p>
-      <div class="ctas">
-        <a class="btn btn-gold js-book" href="#book">Book a 15-minute call →</a>
-        <a class="btn btn-ghost" href="#journey">See how it connects</a>
+      <div class="lockup" aria-label="Propoly and your agency">
+        <div class="logo-slot"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly" data-wordmark="Propoly"></div>
+        <span class="x" aria-hidden="true">×</span>
+        <div class="logo-slot" id="company-logo"></div>
       </div>
-      <div class="hero-meta">
-        <span>Bringing together</span>
-        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly" data-wordmark="Propoly">
-        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/lfl.svg" alt="LegalforLandlords" data-wordmark="LegalforLandlords">
-        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/landlord-lounge-768x281.webp" alt="Landlord Lounge" data-wordmark="Landlord Lounge">
-      </div>
-    </div>
-  </section>
 
-  <!-- VIDEO — set VIDEO_URL at the bottom of the page -->
-  <section class="video" id="video">
-    <div class="wrap">
-      <div class="video-head">
-        <div>
-          <p class="eyebrow">Watch</p>
-          <h2>See how Rental Intelligence Group works for your agency.</h2>
-        </div>
-        <p>A short walkthrough of how the Group connects every stage of the tenancy, before and beyond the keys.</p>
-      </div>
+      <h1>Less chasing. Faster move-ins. <em>A record you can stand behind.</em></h1>
+
       <div class="video-frame" id="video-frame">
         <div class="video-empty">
           <span class="play" aria-hidden="true"></span>
           <b>Video coming soon</b>
-          <small>Add a YouTube, Vimeo, Loom or MP4 link to show it here.</small>
         </div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-gold js-book" href="#book">Book a 15-minute call →</a>
+        <small>With Dale at Propoly · no obligation</small>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section class="problem">
-    <div class="wrap grid">
-      <div class="reveal">
-        <p class="eyebrow">The problem</p>
-        <h2>Would you still understand this tenancy two years from now?</h2>
-        <p style="margin-top:28px">A reference is completed. An agreement is signed. A gas safety certificate is served. The keys are handed over.</p>
-        <p>Two years later the rent slips, a claim is challenged or the landlord wants the property back. The documents may still exist — but what they prove may no longer be clear.</p>
-        <p>Disconnected systems, repeated data entry and endless chasing make it harder to move a tenancy forward, and harder still to stand behind it later.</p>
+  <section class="proof">
+    <div class="wrap">
+      <div class="points">
+        <div class="point"><h3>Progression</h3><p>Holding deposit to signed agreement, monies and move-in, in one flow.</p></div>
+        <div class="point"><h3>Referencing</h3><p>Identity, Right to Rent and affordability, backed by LegalforLandlords.</p></div>
+        <div class="point"><h3>Compliance</h3><p>Every certificate and notice served and recorded from day one.</p></div>
       </div>
-      <div class="reveal">
+
+      <div class="evidence">
         <div class="stat">
           <b>86.6%</b>
-          <small>of references required additional evidence before a tenancy could progress.</small>
+          <p>of references needed extra evidence before the tenancy could move.</p>
+          <small>Source: Propoly referencing data</small>
         </div>
-        <div class="bars">
-          <div class="bar"><div><span>Proof of income or employment</span><span>65.1%</span></div><i style="--w:65.1%"></i></div>
-          <div class="bar"><div><span>Bank statements</span><span>53.2%</span></div><i style="--w:53.2%"></i></div>
-          <div class="bar"><div><span>ID or Right to Rent documents</span><span>32.3%</span></div><i style="--w:32.3%"></i></div>
-          <div class="bar"><div><span>Proof of address</span><span>27.8%</span></div><i style="--w:27.8%"></i></div>
-          <div class="bar"><div><span>Self-employment or tax documents</span><span>12.1%</span></div><i style="--w:12.1%"></i></div>
+        <div class="quotes">
+          <blockquote><q>The best tenancy progression platform by far.</q><cite>Jones Robinson</cite></blockquote>
+          <blockquote><q>Fantastic system to use, saves an enormous amount of time and hassle.</q><cite>James Favas, Bentley Hurst</cite></blockquote>
         </div>
-        <p class="src">Source: Propoly referencing data.</p>
       </div>
     </div>
   </section>
 
-  <!-- JOURNEY -->
-  <section class="journey" id="journey">
+  <section class="close" id="book">
     <div class="wrap">
-      <div class="journey-head reveal">
-        <p class="eyebrow">One rental relationship. Eight stages.</p>
-        <h2>What happens at one stage shapes what's possible at the next.</h2>
-        <p>Landlord · Property · Tenancy · Tenant · Through time</p>
-      </div>
-
-      <div class="phase reveal">
-        <h3>Before <em>the keys.</em></h3>
-        <div class="stages">
-          <div class="stage"><span class="n">01</span><h4>Tenancy Progression</h4><p>From holding deposit to signed agreement, monies, deposit and handover.</p></div>
-          <div class="stage"><span class="n">02</span><h4>Tenancy Referencing</h4><p>Identity, Right to Rent, affordability, credit history and conditions to proceed.</p></div>
-          <div class="stage"><span class="n">03</span><h4>Compliance &amp; Evidence</h4><p>Certificates, prescribed information and service records — right and provable.</p></div>
-          <div class="stage"><span class="n">04</span><h4>Insurance &amp; Protection</h4><p>Protect the tenancy while the facts and risk position are current.</p></div>
-        </div>
-      </div>
-
-      <div class="phase reveal">
-        <h3>Beyond <em>the keys.</em></h3>
-        <div class="stages">
-          <div class="stage"><span class="n">05</span><h4>Rent Review</h4><p>Market evidence, tenancy history and timing behind the annual rent decision.</p></div>
-          <div class="stage"><span class="n">06</span><h4>Legal &amp; Possession</h4><p>Early intervention, evidence readiness and specialist judgement when it gets difficult.</p></div>
-          <div class="stage"><span class="n">07</span><h4>Claims &amp; Protection</h4><p>Policy terms, notifications and tenancy history tested when protection is called on.</p></div>
-          <div class="stage"><span class="n">08</span><h4>Insights</h4><p>Regulatory and market change turned into practical briefings for agents and landlords.</p></div>
-        </div>
-      </div>
-
-      <p class="keys-note reveal">The keys are a handover moment in the relationship — not a boundary in the intelligence.</p>
-    </div>
-  </section>
-
-  <!-- GROUP -->
-  <section class="group">
-    <div class="wrap">
-      <div class="group-head reveal">
-        <div>
-          <p class="eyebrow">The Group</p>
-          <h2>Specialist roles. One connected relationship.</h2>
-        </div>
-        <p>The name is new. The work behind it is not. Each business has a clear role — together they cover more of the rental relationship than any one system.</p>
-      </div>
-      <div class="brands">
-        <article class="brand reveal">
-          <div class="logo"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly" data-wordmark="Propoly"></div>
-          <p class="tag">Tenancy operations</p>
-          <h3>From application to move-in.</h3>
-          <p>Propoly helps your team progress tenancies, manage compliance and create a clear record from day one.</p>
-          <ul><li>Tenancy progression</li><li>Compliance</li><li>Digital record</li></ul>
-        </article>
-        <article class="brand reveal">
-          <div class="logo"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/lfl.svg" alt="LegalforLandlords" data-wordmark="LegalforLandlords"></div>
-          <p class="tag">Specialist services</p>
-          <h3>Expertise when it matters.</h3>
-          <p>Referencing, protection, insurance, claims and Professional Services when a reference, claim or difficult tenancy needs a specialist.</p>
-          <ul><li>Referencing</li><li>Rent &amp; legal protection</li><li>Claims</li><li>Possession</li></ul>
-        </article>
-        <article class="brand reveal">
-          <div class="logo"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/landlord-lounge-768x281.webp" alt="Landlord Lounge" data-wordmark="Landlord Lounge"></div>
-          <p class="tag">For your landlords</p>
-          <h3>A home beyond move-in.</h3>
-          <p>Property information, compliance, documents and practical guidance in one place — keeping your landlords informed and engaged.</p>
-          <ul><li>Landlord portal</li><li>Documents</li><li>Guidance</li></ul>
-        </article>
-        <article class="brand astra reveal">
-          <div class="logo"><span class="wordmark">Astra</span></div>
-          <p class="tag">AI &amp; automation</p>
-          <h3>Less routine. Clearer next steps.</h3>
-          <p>The Group's AI layer — cutting repetitive admin, bringing what needs attention into view and freeing your team for relationships and decisions.</p>
-          <ul><li>Automation</li><li>Practical AI</li></ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROOF (placeholder — fill in later) -->
-  <section class="proof">
-    <div class="wrap grid">
-      <div class="reveal">
-        <p class="eyebrow">Recognised in their own markets</p>
-        <blockquote class="quote">“The best tenancy progression platform by far.”</blockquote>
-        <p class="quote-by">Jones Robinson, Propoly customer</p>
-      </div>
-      <div class="awards reveal">
-        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/estas-propoly-236x300.webp" alt="ESTAS Best in Sector — Propoly" data-hide-on-error>
-        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/estas-lfl-236x300.webp" alt="ESTAS Best in Sector — LegalforLandlords" data-hide-on-error>
-      </div>
-      <div class="placeholder">Space reserved — case studies, client logos and results to be added.</div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="book">
-    <div class="wrap reveal">
-      <p class="eyebrow">Start with what you need</p>
-      <h2>Tell us what you're trying to improve.</h2>
-      <p>Book a short call and we'll bring the right part of the Group into the conversation — no hard sell, just a clear look at where time and risk are going.</p>
+      <h2>15 minutes. See if it fits <span class="js-company">your agency</span>.</h2>
+      <p>Pick a time with Dale and we'll look at where your tenancies slow down today.</p>
       <a class="btn btn-gold js-book" href="#book">Book a call →</a>
-      <ul>
-        <li>15 minutes</li>
-        <li>Tailored to your agency</li>
-        <li>No obligation</li>
-      </ul>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Rental Intelligence Group</span>
-    <span><a href="https://riggroup.co.uk/" target="_blank" rel="noopener">riggroup.co.uk</a></span>
+    <span>Propoly is part of Rental Intelligence Group</span>
+    <a href="https://www.propoly.com/" target="_blank" rel="noopener">propoly.com</a>
   </div>
 </footer>
 
 <script>
   // ============ EDIT HERE ============
-  // Paste your booking link (Calendly, HubSpot, Microsoft Bookings, etc.)
-  const BOOKING_URL = "https://www.propoly.com/dale";
+  const COMPANY_NAME = "";   // e.g. "Bentley Hurst". On a live site, ?company=Bentley%20Hurst also works.
+  const COMPANY_LOGO = "";   // path or link to their logo, e.g. "logos/bentley-hurst.svg"
+  const BOOKING_URL  = "https://www.propoly.com/dale";
+  const VIDEO_URL    = "";   // YouTube, Vimeo or Loom link, or a direct .mp4 link
+  // ===================================
 
-  // Paste a YouTube, Vimeo or Loom link, or a direct .mp4 link. Leave "" to show the placeholder.
-  const VIDEO_URL = "";
+  let company = COMPANY_NAME;
+  try { company = new URLSearchParams(location.search).get("company") || company; } catch (e) {}
+
+  // Company logo slot: logo image, else company name, else a placeholder
+  const slot = document.getElementById("company-logo");
+  function companyText() {
+    slot.replaceChildren();
+    if (company) { const w = document.createElement("span"); w.className = "wordmark"; w.textContent = company; slot.append(w); }
+    else { slot.classList.add("pending"); slot.textContent = "Your logo here"; }
+  }
+  if (COMPANY_LOGO) {
+    const img = new Image(); img.src = COMPANY_LOGO; img.alt = company || "Agency logo";
+    img.onerror = companyText; slot.append(img);
+  } else companyText();
+
+  if (company) {
+    document.title = "Propoly × " + company + " | Book a call";
+    document.querySelectorAll(".js-company").forEach(el => el.textContent = company);
+  }
+
+  if (BOOKING_URL) document.querySelectorAll(".js-book").forEach(a => { a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener"; });
 
   (function renderVideo(url) {
     if (!url) return;
@@ -374,9 +225,9 @@
     let m, embed = null;
     if ((m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) embed = "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0";
     else if ((m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/))) embed = "https://player.vimeo.com/video/" + m[1];
-    else if ((m = url.match(/loom\.com\/(?:share|embed)\/([\w]+)/))) embed = "https://www.loom.com/embed/" + m[1];
+    else if ((m = url.match(/loom\.com\/(?:share|embed)\/(\w+)/))) embed = "https://www.loom.com/embed/" + m[1];
     if (embed) {
-      frame.innerHTML = '<iframe src="' + embed + '" title="Rental Intelligence Group video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+      frame.innerHTML = '<iframe src="' + embed + '" title="Propoly video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
     } else {
       const v = document.createElement("video");
       v.src = url; v.controls = true; v.playsInline = true; v.preload = "metadata";
@@ -384,24 +235,14 @@
     }
   })(VIDEO_URL);
 
-  if (BOOKING_URL) {
-    document.querySelectorAll(".js-book").forEach(a => {
-      a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener";
-    });
-  }
+  // Images that can't load fall back to a text wordmark
   function swapBroken(img) {
-    if (img.dataset.wordmark) {
-      const w = document.createElement("span");
-      w.className = "wordmark"; w.textContent = img.dataset.wordmark;
-      img.replaceWith(w);
-    } else if ("hideOnError" in img.dataset) { img.remove(); }
+    const w = document.createElement("span"); w.className = "wordmark"; w.textContent = img.dataset.wordmark; img.replaceWith(w);
   }
-  document.querySelectorAll("img[data-wordmark], img[data-hide-on-error]").forEach(img => {
+  document.querySelectorAll("img[data-wordmark]").forEach(img => {
     if (img.complete && !img.naturalWidth) swapBroken(img);
     else img.addEventListener("error", () => swapBroken(img));
   });
-  document.getElementById("yr").textContent = new Date().getFullYear();
-
 </script>
 </body>
 </html>
