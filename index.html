@@ -177,7 +177,7 @@
         <div class="logo-slot" id="company-logo"></div>
       </div>
 
-      <h1>Less chasing. Faster move-ins. <em>A record you can stand behind.</em></h1>
+      <h1>Intelligence on every <span class="js-company-h"></span>tenancy, <em>before and beyond the keys.</em></h1>
 
       <div class="video-frame" id="video-frame">
         <div class="video-empty">
@@ -330,6 +330,7 @@
   if (company) {
     document.title = "Propoly × " + company + " | Book a call";
     document.querySelectorAll(".js-company").forEach(el => el.textContent = company);
+    document.querySelectorAll(".js-company-h").forEach(el => el.textContent = company + " ");
   }
 
   if (BOOKING_URL) document.querySelectorAll(".js-book").forEach(a => { a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener"; });
