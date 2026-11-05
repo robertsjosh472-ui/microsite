@@ -78,9 +78,6 @@
   .btn-lg { padding: 18px 30px; font-size: 16px; box-shadow: 0 10px 30px -10px rgba(185,149,85,.6); }
   .btn-lg .arr { transition: transform .2s; }
   .btn-lg:hover .arr { transform: translateX(4px); }
-  .host { display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 1.35; color: var(--on-navy); text-align: left; }
-  .host b { color: #fff; font-weight: 600; }
-  .host .stars { color: var(--gold); letter-spacing: 1px; }
 
   /* Trusted-by strip */
   .trusted { width: 100%; display: grid; gap: 12px; justify-items: center; padding-top: clamp(12px, 2svh, 20px); border-top: 1px solid var(--line-navy); }
@@ -183,10 +180,8 @@
     .logo-slot .wordmark { font-size: 22px; }
     .hero h1 { font-size: 27px; }
     .video-frame { width: 100%; }
-    .hero-cta { gap: 10px; }
     .btn-lg { width: 100%; justify-content: center; padding-block: 16px; }
-    .host { font-size: 13px; }
-    .agents img { height: 32px; }
+      .agents img { height: 32px; }
     .nav .btn .long { display: none; }
     .nav .btn .short { display: inline; }
     .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -232,9 +227,6 @@
 
       <div class="hero-cta">
         <a class="btn btn-gold btn-lg js-book" href="#book">Book a 15-minute call <span class="arr" aria-hidden="true">→</span></a>
-        <div class="host">
-          <span>With <b>Dale at Propoly</b> · no obligation<br><span class="stars" aria-hidden="true">★★★★★</span> 4.8 on Trustpilot</span>
-        </div>
       </div>
 
       <div class="trusted">
@@ -354,7 +346,7 @@
       <h2>Intelligence that moves every <span class="js-company-h"></span>tenancy <em>faster.</em></h2>
       <p class="close-sub">Propoly turns every reference, document and deadline into live intelligence, so your team progresses lets faster and always knows what needs attention next. See it on your own tenancies in 15&nbsp;minutes.</p>
       <a class="btn btn-gold btn-lg js-book" href="#book">Book a 15-minute call <span class="arr" aria-hidden="true">→</span></a>
-      <p class="close-proof">No obligation <i aria-hidden="true">·</i> <span class="stars" aria-hidden="true">★★★★★</span> 4.8 on Trustpilot <i aria-hidden="true">·</i> Trusted by Greater London Properties, Reeds Rains and Your Move</p>
+      <p class="close-proof"><span class="stars" aria-hidden="true">★★★★★</span> Rated Excellent on Trustpilot <i aria-hidden="true">·</i> Trusted by Greater London Properties, Reeds Rains and Your Move</p>
       <div class="awards" aria-label="ESTAS Best in Sector, two years running">
         <p>ESTAS Best in Sector · Two years running</p>
         <ul>
