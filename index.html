@@ -66,6 +66,19 @@
   .hero-meta span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
   .hero-meta img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: .85; }
 
+  /* Video */
+  .video { padding-block: 96px; }
+  .video-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+  .video-head h2 { font-size: clamp(32px, 4vw, 46px); max-width: 18ch; text-wrap: balance; }
+  .video-head p { max-width: 420px; margin: 0; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--navy); border: 1px solid var(--line); overflow: hidden; }
+  .video-frame iframe, .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+  .video-empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; color: rgba(255,255,255,.7); padding: 24px; background: radial-gradient(70% 90% at 80% 10%, rgba(185,149,85,.2), transparent 70%), var(--navy); }
+  .video-empty .play { width: 76px; height: 76px; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; }
+  .video-empty .play::before { content: ""; border-left: 20px solid var(--gold); border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 6px; }
+  .video-empty b { font: 400 24px/1.2 var(--serif); color: #fff; }
+  .video-empty small { font-size: 14px; }
+
   /* Problem */
   .problem .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
   .problem h2 { font-size: clamp(34px, 4.5vw, 52px); }
@@ -181,6 +194,26 @@
         <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly" data-wordmark="Propoly">
         <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/lfl.svg" alt="LegalforLandlords" data-wordmark="LegalforLandlords">
         <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/landlord-lounge-768x281.webp" alt="Landlord Lounge" data-wordmark="Landlord Lounge">
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO — set VIDEO_URL at the bottom of the page -->
+  <section class="video" id="video">
+    <div class="wrap">
+      <div class="video-head">
+        <div>
+          <p class="eyebrow">Watch</p>
+          <h2>See how Rental Intelligence Group works for your agency.</h2>
+        </div>
+        <p>A short walkthrough of how the Group connects every stage of the tenancy, before and beyond the keys.</p>
+      </div>
+      <div class="video-frame" id="video-frame">
+        <div class="video-empty">
+          <span class="play" aria-hidden="true"></span>
+          <b>Video coming soon</b>
+          <small>Add a YouTube, Vimeo, Loom or MP4 link to show it here.</small>
+        </div>
       </div>
     </div>
   </section>
@@ -331,6 +364,25 @@
   // ============ EDIT HERE ============
   // Paste your booking link (Calendly, HubSpot, Microsoft Bookings, etc.)
   const BOOKING_URL = "https://www.propoly.com/dale";
+
+  // Paste a YouTube, Vimeo or Loom link, or a direct .mp4 link. Leave "" to show the placeholder.
+  const VIDEO_URL = "";
+
+  (function renderVideo(url) {
+    if (!url) return;
+    const frame = document.getElementById("video-frame");
+    let m, embed = null;
+    if ((m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) embed = "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0";
+    else if ((m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/))) embed = "https://player.vimeo.com/video/" + m[1];
+    else if ((m = url.match(/loom\.com\/(?:share|embed)\/([\w]+)/))) embed = "https://www.loom.com/embed/" + m[1];
+    if (embed) {
+      frame.innerHTML = '<iframe src="' + embed + '" title="Rental Intelligence Group video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    } else {
+      const v = document.createElement("video");
+      v.src = url; v.controls = true; v.playsInline = true; v.preload = "metadata";
+      frame.replaceChildren(v);
+    }
+  })(VIDEO_URL);
 
   if (BOOKING_URL) {
     document.querySelectorAll(".js-book").forEach(a => {

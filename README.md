@@ -5,6 +5,7 @@ Single-page "book a call" site for letting agents, in RIG brand colours
 
 ## Edit
 - **Booking link:** `BOOKING_URL` near the bottom of `index.html` (currently Dale's 15-minute call: propoly.com/dale).
+- **Video:** set `VIDEO_URL` (YouTube, Vimeo, Loom or .mp4 link) next to `BOOKING_URL`. Empty shows a "coming soon" placeholder.
 - **Colours/fonts:** CSS variables at the top of `index.html`.
 - **Proof section:** placeholder box ready for case studies / logos.
 
