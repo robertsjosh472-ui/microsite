@@ -85,8 +85,7 @@
   /* Proof strip */
   .proof { padding-block: 88px; }
   /* Stage slider */
-  .stages-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
-  .stages-head h2 { font-size: clamp(28px, 3.6vw, 40px); }
+  .stages-head { display: flex; justify-content: center; margin-bottom: 28px; }
   .phase-tabs { display: inline-flex; border: 1px solid var(--line); background: #fff; }
   .phase-tabs button { font: 600 14px/1 var(--sans); padding: 12px 18px; border: 0; background: transparent; color: var(--slate); cursor: pointer; }
   .phase-tabs button[aria-selected="true"] { background: var(--navy); color: #fff; }
@@ -214,7 +213,6 @@
     <div class="wrap">
       <div class="stages" id="stages">
         <div class="stages-head">
-          <h2>One tenancy. Eight stages.</h2>
           <div class="phase-tabs" role="tablist" aria-label="Jump to phase">
             <button type="button" role="tab" id="tab-before" data-phase="before" aria-selected="true">Before the keys</button>
             <button type="button" role="tab" id="tab-beyond" data-phase="beyond" aria-selected="false">Beyond the keys</button>
