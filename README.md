@@ -7,6 +7,7 @@ First screen: Propoly × agency logos, the video, and a book-a-call button.
 - `COMPANY_NAME` — the agency's name. On the live site you can also add `?company=Agency%20Name` to the URL, so one site works for every prospect.
 - `COMPANY_LOGO` — path to their logo (e.g. put files in `logos/`). Falls back to the name, then a "Your logo here" placeholder.
 - `BOOKING_URL` — currently Dale's 15-minute call: propoly.com/dale.
+- `HOST_PHOTO` — Dale's photo (e.g. `logos/dale.jpg`). Empty shows a "D" initial in the avatar.
 - `VIDEO_URL` — YouTube, Vimeo, Loom or direct `.mp4` link. Empty shows a "coming soon" placeholder.
 
 ## Logos
