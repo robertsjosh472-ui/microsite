@@ -51,21 +51,22 @@
   .nav .btn .short { display: none; }
 
   /* Opening screen: centred stack (logos, headline, Loom video, one CTA, partner logos) */
-  .hero { background: var(--navy); color: var(--on-navy); padding-block: 56px 72px; position: relative; overflow: hidden; }
+  .hero { background: var(--navy); color: var(--on-navy); padding-block: 28px 24px; position: relative; overflow: hidden; min-height: calc(100svh - 69px); display: flex; align-items: center; }
+  .hero > .wrap { width: 100%; }
   .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 60% at 85% 0%, rgba(185,149,85,.16), transparent 70%); pointer-events: none; }
-  .hero .wrap { position: relative; z-index: 1; display: grid; gap: 36px; justify-items: center; text-align: center; }
+  .hero .wrap { position: relative; z-index: 1; display: grid; gap: clamp(14px, 2.2svh, 24px); justify-items: center; text-align: center; }
 
   .lockup { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
-  .lockup .x { font: 300 36px/1 var(--sans); color: var(--gold); }
-  .logo-slot { height: 56px; display: flex; align-items: center; }
-  .logo-slot img { height: 56px; width: auto; max-width: 100%; }
-  .logo-slot .wordmark { font: 500 34px/1 var(--serif); color: #fff; }
+  .lockup .x { font: 300 30px/1 var(--sans); color: var(--gold); }
+  .logo-slot { height: 44px; display: flex; align-items: center; }
+  .logo-slot img { height: 44px; width: auto; max-width: 100%; }
+  .logo-slot .wordmark { font: 500 30px/1 var(--serif); color: #fff; }
   .logo-slot.pending { border: 1px dashed var(--gold); padding: 0 20px; font: 500 15px/1 var(--sans); color: var(--gold); }
 
-  .hero h1 { color: #fff; font-size: clamp(34px, 5vw, 58px); max-width: 20ch; }
+  .hero h1 { color: #fff; font-size: clamp(30px, 3.3vw, 46px); line-height: 1.08; max-width: 34ch; }
   .hero h1 em { font-style: italic; color: var(--gold); }
 
-  .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: #000; border: 1px solid var(--line-navy); overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0,0,0,.7); }
+  .video-frame { position: relative; width: min(100%, max(420px, calc((100vh - 470px) * 16 / 9))); width: min(100%, max(420px, calc((100svh - 470px) * 16 / 9))); aspect-ratio: 16 / 9; max-width: 100%; background: #000; border: 1px solid var(--line-navy); overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0,0,0,.7); }
   .video-frame iframe, .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
   .video-empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 16px; padding: 24px; background: var(--navy-2); color: var(--on-navy); }
   .video-empty .play { width: 80px; height: 80px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; animation: pulse 2.6s ease-out infinite; }
@@ -73,8 +74,8 @@
   .video-empty b { font: 400 22px/1.2 var(--serif); color: #fff; }
   @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(185,149,85,.35); } 70% { box-shadow: 0 0 0 18px rgba(185,149,85,0); } 100% { box-shadow: 0 0 0 0 rgba(185,149,85,0); } }
 
-  .hero-cta { display: grid; gap: 16px; justify-items: center; }
-  .btn-lg { padding: 19px 32px; font-size: 16px; box-shadow: 0 10px 30px -10px rgba(185,149,85,.6); }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 24px; }
+  .btn-lg { padding: 18px 30px; font-size: 16px; box-shadow: 0 10px 30px -10px rgba(185,149,85,.6); }
   .btn-lg .arr { transition: transform .2s; }
   .btn-lg:hover .arr { transform: translateX(4px); }
   .host { display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 1.35; color: var(--on-navy); text-align: left; }
@@ -84,10 +85,12 @@
   .host .stars { color: var(--gold); letter-spacing: 1px; }
 
   /* Trusted-by strip */
-  .trusted { width: 100%; display: grid; gap: 20px; justify-items: center; padding-top: 40px; border-top: 1px solid var(--line-navy); }
+  .trusted { width: 100%; display: grid; gap: 12px; justify-items: center; padding-top: clamp(12px, 2svh, 20px); border-top: 1px solid var(--line-navy); }
   .trusted p { margin: 0; font: 600 12px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--on-navy-dim); }
-  .agents { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .agents img { height: 48px; width: auto; }
+  .agents { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: nowrap; justify-content: center; gap: 8px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .agents::-webkit-scrollbar { display: none; }
+  .agents li { flex: none; }
+  .agents img { height: 32px; width: auto; max-width: none; }
   @media (prefers-reduced-motion: reduce) { .video-empty .play { animation: none; } }
 
   /* Stage slider */
@@ -152,15 +155,19 @@
   }
   @media (max-width: 560px) {
     body { font-size: 16px; }
-    .hero { padding-block: 40px 56px; }
-    .hero .wrap { gap: 28px; }
-    .lockup { gap: 16px; }
-    .lockup .x { font-size: 28px; }
-    .logo-slot, .logo-slot img { height: 40px; }
-    .logo-slot .wordmark { font-size: 26px; }
-    .btn-lg { width: 100%; justify-content: center; }
-    .agents { gap: 8px; }
-    .agents img { height: 38px; }
+    .hero { padding-block: 20px 20px; min-height: 0; }
+    .hero .wrap { gap: 14px; }
+    .lockup { gap: 12px; }
+    .lockup .x { font-size: 22px; }
+    .logo-slot, .logo-slot img { height: 32px; }
+    .logo-slot .wordmark { font-size: 22px; }
+    .hero h1 { font-size: 27px; }
+    .video-frame { width: 100%; }
+    .hero-cta { gap: 10px; }
+    .btn-lg { width: 100%; justify-content: center; padding-block: 16px; }
+    .host { font-size: 13px; }
+    .agents { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+    .agents img { height: 30px; }
     .nav .btn .long { display: none; }
     .nav .btn .short { display: inline; }
     .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -212,15 +219,16 @@
       <div class="trusted">
         <p>Trusted by letting agents including</p>
         <ul class="agents">
-          <li><img src="logos/reeds-rains.png" alt="Reeds Rains" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/your-move.png" alt="Your Move" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/paramount.png" alt="Paramount" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/cp-walker.png" alt="CP Walker &amp; Son" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/brock.png" alt="Brock Taylor" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/robinson.png" alt="Robinson-Jackson" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/elliot-oliver.png" alt="Elliot Oliver" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/koko.png" alt="Kooky" width="213" height="72" loading="lazy"></li>
-          <li><img src="logos/EBI.png" alt="EBI" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/glp.png" alt="Greater London Properties" width="213" height="72"></li>
+          <li><img src="logos/reeds-rains.png" alt="Reeds Rains" width="213" height="72"></li>
+          <li><img src="logos/your-move.png" alt="Your Move" width="213" height="72"></li>
+          <li><img src="logos/paramount.png" alt="Paramount" width="213" height="72"></li>
+          <li><img src="logos/cp-walker.png" alt="CP Walker &amp; Son" width="213" height="72"></li>
+          <li><img src="logos/brock.png" alt="Brock Taylor" width="213" height="72"></li>
+          <li><img src="logos/robinson.png" alt="Robinson-Jackson" width="213" height="72"></li>
+          <li><img src="logos/elliot-oliver.png" alt="Elliot Oliver" width="213" height="72"></li>
+          <li><img src="logos/koko.png" alt="Kooky" width="213" height="72"></li>
+          <li><img src="logos/EBI.png" alt="EBI" width="213" height="72"></li>
         </ul>
       </div>
     </div>
