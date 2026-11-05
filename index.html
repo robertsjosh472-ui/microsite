@@ -45,7 +45,7 @@
   /* Top bar */
   .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--navy); border-bottom: 1px solid var(--line-navy); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .nav img { height: 28px; width: auto; }
+  .nav img { height: 44px; width: auto; }
   .nav .wordmark { font: 400 18px/1 var(--serif); color: #fff; }
   .nav .btn { padding: 11px 18px; font-size: 14px; }
 
@@ -57,7 +57,7 @@
   .lockup { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
   .lockup .x { font: 300 36px/1 var(--sans); color: var(--gold); }
   .logo-slot { height: 56px; display: flex; align-items: center; }
-  .logo-slot img { max-height: 56px; width: auto; }
+  .logo-slot img { height: 56px; width: auto; max-width: 100%; }
   .logo-slot .wordmark { font: 500 34px/1 var(--serif); color: #fff; }
   .logo-slot.pending { border: 1px dashed var(--gold); padding: 0 20px; font: 500 15px/1 var(--sans); color: var(--gold); }
 
@@ -73,6 +73,14 @@
 
   .hero-cta { display: grid; gap: 12px; justify-items: center; }
   .hero-cta small { font-size: 14px; color: var(--on-navy-dim); }
+
+  /* Trusted-by strip */
+  .trusted { width: 100%; display: grid; gap: 20px; justify-items: center; padding-top: 40px; border-top: 1px solid var(--line-navy); }
+  .trusted p { margin: 0; font: 600 12px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--on-navy-dim); }
+  .agents { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .agents img { height: 48px; width: auto; }
+  .rating { font-size: 14px; color: var(--on-navy-dim); }
+  .rating b { color: var(--gold); font-weight: 600; }
 
   /* Proof strip */
   .proof { padding-block: 88px; }
@@ -110,8 +118,10 @@
     .lockup { gap: 16px; }
     .lockup .x { font-size: 28px; }
     .logo-slot { height: 40px; }
-    .logo-slot img { max-height: 40px; }
+    .logo-slot img { height: 40px; }
     .logo-slot .wordmark { font-size: 26px; }
+    .agents { gap: 8px; }
+    .agents img { height: 38px; }
     .nav .wordmark { font-size: 15px; }
     .proof, .close { padding-block: 64px; }
   }
@@ -121,7 +131,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/rig-logo-white.svg" alt="Rental Intelligence Group" data-wordmark="Rental Intelligence Group">
+    <img src="logos/rig-logo-white.svg" alt="Rental Intelligence Group" data-wordmark="Rental Intelligence Group">
     <a class="btn btn-gold js-book" href="#book">Book a call</a>
   </div>
 </header>
@@ -130,7 +140,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="lockup" aria-label="Propoly and your agency">
-        <div class="logo-slot"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly" data-wordmark="Propoly"></div>
+        <div class="logo-slot"><img src="logos/propoly.svg" alt="Propoly" data-wordmark="Propoly"></div>
         <span class="x" aria-hidden="true">×</span>
         <div class="logo-slot" id="company-logo"></div>
       </div>
@@ -147,6 +157,22 @@
       <div class="hero-cta">
         <a class="btn btn-gold js-book" href="#book">Book a 15-minute call →</a>
         <small>With Dale at Propoly · no obligation</small>
+      </div>
+
+      <div class="trusted">
+        <p>Trusted by letting agents including</p>
+        <ul class="agents">
+          <li><img src="logos/reeds-rains.png" alt="Reeds Rains" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/your-move.png" alt="Your Move" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/paramount.png" alt="Paramount" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/cp-walker.png" alt="CP Walker & Son" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/brock.png" alt="Brock Taylor" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/robinson.png" alt="Robinson-Jackson" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/elliot-oliver.png" alt="Elliot Oliver" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/koko.png" alt="Kooky" width="213" height="72" loading="lazy"></li>
+          <li><img src="logos/EBI.png" alt="EBI" width="213" height="72" loading="lazy"></li>
+        </ul>
+        <span class="rating">LegalforLandlords rated <b>4.8</b> on Trustpilot from 8,400+ reviews</span>
       </div>
     </div>
   </section>

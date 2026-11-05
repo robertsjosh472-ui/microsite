@@ -9,5 +9,8 @@ First screen: Propoly × agency logos, the video, and a book-a-call button.
 - `BOOKING_URL` — currently Dale's 15-minute call: propoly.com/dale.
 - `VIDEO_URL` — YouTube, Vimeo, Loom or direct `.mp4` link. Empty shows a "coming soon" placeholder.
 
+## Logos
+`logos/` holds the RIG and Propoly logos plus the partner agency logos shown in the "Trusted by" strip (white on grey, made for the navy background).
+
 ## Run
 Open `index.html` in a browser. No build step. Deploys as-is to GitHub Pages (Settings → Pages → `main` / root).
