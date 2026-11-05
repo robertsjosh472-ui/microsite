@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rental Intelligence Group | Book a call</title>
+<meta name="description" content="Propoly, LegalforLandlords and Landlord Lounge — one connected journey across the rental relationship. Book a call with Rental Intelligence Group.">
+<link rel="icon" href="https://riggroup.co.uk/wp-content/themes/RIGTheme/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  /* ============ EDIT HERE ============ */
+  /* Booking link lives in the <script> at the bottom: BOOKING_URL */
+  :root {
+    --navy: #071A26;      /* RIG primary dark */
+    --navy-2: #0E2A3B;
+    --cream: #FFFDF8;     /* RIG background */
+    --sand: #F4EFE4;
+    --gold: #B99555;      /* RIG accent */
+    --gold-dark: #9A7A40;
+    --slate: #657378;     /* RIG body text */
+    --ink: #071A26;
+    --line: rgba(7, 26, 38, .12);
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", ui-sans-serif, -apple-system, "Segoe UI", Arial, sans-serif;
+    --max: 1160px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--slate); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--ink); margin: 0; line-height: 1.1; letter-spacing: -.01em; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow { font: 600 12px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 18px; }
+  section { padding: 104px 0; }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; font: 600 15px/1 var(--sans); text-decoration: none; border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s; cursor: pointer; }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: #CBA86A; }
+  .btn-dark { background: var(--navy); color: #fff; }
+  .btn-dark:hover { background: var(--navy-2); }
+  .btn-ghost { border-color: rgba(255,255,255,.4); color: #fff; }
+  .btn-ghost:hover { border-color: #fff; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 10; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .nav-logo img { height: 34px; width: auto; }
+  .nav-logo .fallback { font-family: var(--serif); color: #fff; font-size: 20px; text-decoration: none; }
+  .nav .btn { padding: 12px 20px; font-size: 14px; }
+
+  /* Hero */
+  .hero { background: var(--navy); color: rgba(255,255,255,.78); padding: 120px 0 112px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 85% 20%, rgba(185,149,85,.18), transparent 70%); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero h1 { color: #fff; font-size: clamp(44px, 7.5vw, 96px); max-width: 12ch; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p.lead { font-size: clamp(18px, 2vw, 22px); max-width: 600px; margin: 28px 0 40px; }
+  .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-meta { margin-top: 72px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid rgba(255,255,255,.12); padding-top: 32px; }
+  .hero-meta span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+  .hero-meta img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: .85; }
+
+  /* Problem */
+  .problem .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+  .problem h2 { font-size: clamp(34px, 4.5vw, 52px); }
+  .problem p { margin: 0 0 18px; }
+  .stat { border-left: 2px solid var(--gold); padding: 4px 0 4px 28px; margin-bottom: 36px; }
+  .stat b { display: block; font: 400 clamp(56px, 7vw, 84px)/1 var(--serif); color: var(--ink); }
+  .stat small { display: block; margin-top: 10px; font-size: 15px; }
+  .bars { display: grid; gap: 14px; }
+  .bar { font-size: 14px; }
+  .bar div { display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--ink); }
+  .bar i { display: block; height: 6px; background: var(--sand); }
+  .bar i::before { content: ""; display: block; height: 100%; width: var(--w); background: var(--gold); }
+  .src { font-size: 12px; margin-top: 18px; opacity: .8; }
+
+  /* Journey */
+  .journey { background: var(--sand); }
+  .journey-head { max-width: 720px; margin-bottom: 56px; }
+  .journey h2 { font-size: clamp(34px, 4.5vw, 52px); }
+  .journey-head p { margin: 18px 0 0; }
+  .phase { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 40px 0; border-top: 1px solid var(--line); }
+  .phase h3 { font-size: 30px; }
+  .phase h3 em { color: var(--gold); }
+  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .stage { background: var(--cream); padding: 26px 22px; }
+  .stage .n { font: 500 13px/1 var(--sans); color: var(--gold); letter-spacing: .1em; }
+  .stage h4 { font-size: 21px; margin: 14px 0 10px; }
+  .stage p { font-size: 14px; line-height: 1.55; margin: 0; }
+  .keys-note { text-align: center; font: italic 400 22px/1.4 var(--serif); color: var(--ink); padding: 40px 0 0; border-top: 1px solid var(--line); }
+
+  /* Group */
+  .group h2 { font-size: clamp(34px, 4.5vw, 52px); max-width: 16ch; }
+  .group-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
+  .group-head p { max-width: 440px; margin: 0; }
+  .brands { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .brand { border: 1px solid var(--line); padding: 40px; background: #fff; display: flex; flex-direction: column; }
+  .brand .logo { height: 44px; display: flex; align-items: center; margin-bottom: 28px; }
+  .brand .logo img { max-height: 44px; width: auto; }
+  .brand .logo .wordmark { font: 500 26px/1 var(--serif); color: var(--ink); }
+  .brand .tag { font: 600 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .brand h3 { font-size: 26px; margin-bottom: 14px; }
+  .brand p { margin: 0 0 20px; font-size: 16px; }
+  .brand ul { margin: auto 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .brand li { font-size: 13px; padding: 6px 12px; background: var(--sand); color: var(--ink); }
+  .brand.astra { background: var(--navy); border-color: var(--navy); color: rgba(255,255,255,.75); }
+  .brand.astra h3, .brand.astra .wordmark { color: #fff; }
+  .brand.astra li { background: rgba(255,255,255,.08); color: #fff; }
+
+  /* Proof (placeholder) */
+  .proof { background: var(--sand); }
+  .proof .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .quote { font: 400 clamp(28px, 3.6vw, 42px)/1.25 var(--serif); color: var(--ink); margin: 0; }
+  .quote-by { margin-top: 20px; font-size: 15px; }
+  .awards { display: flex; gap: 20px; justify-content: center; }
+  .awards img { width: 150px; height: auto; }
+  .placeholder { border: 1px dashed var(--gold); padding: 22px; font-size: 14px; text-align: center; margin-top: 36px; grid-column: 1 / -1; color: var(--gold-dark); }
+
+  /* CTA */
+  .cta { background: var(--navy); color: rgba(255,255,255,.78); text-align: center; }
+  .cta h2 { color: #fff; font-size: clamp(38px, 5.5vw, 68px); max-width: 16ch; margin: 0 auto; }
+  .cta p { max-width: 560px; margin: 24px auto 40px; font-size: 19px; }
+  .cta ul { list-style: none; padding: 0; margin: 40px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; font-size: 15px; }
+  .cta li::before { content: "✓"; color: var(--gold); margin-right: 8px; }
+
+  footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.5); font-size: 13px; padding: 32px 0; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 960px) {
+    .problem .grid, .proof .grid { grid-template-columns: 1fr; gap: 48px; }
+    .phase { grid-template-columns: 1fr; gap: 20px; }
+    .stages { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    section { padding: 72px 0; }
+    .hero { padding: 80px 0 72px; }
+    .nav .btn span.long { display: none; }
+    .stages, .brands { grid-template-columns: 1fr; }
+    .brand { padding: 28px; }
+    .awards img { width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#top" aria-label="Rental Intelligence Group">
+      <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/rig-logo-white.svg" alt="Rental Intelligence Group" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'fallback',textContent:'Rental Intelligence Group'}))">
+    </a>
+    <a class="btn btn-gold js-book" href="#book">Book a call<span class="long">&nbsp;→</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">For letting agents</p>
+      <h1>Before the keys. <em>Beyond the keys.</em></h1>
+      <p class="lead">One connected journey from application to possession. Tenancy operations, specialist referencing, protection and legal expertise — brought together under Rental Intelligence Group.</p>
+      <div class="ctas">
+        <a class="btn btn-gold js-book" href="#book">Book a 15-minute call →</a>
+        <a class="btn btn-ghost" href="#journey">See how it connects</a>
+      </div>
+      <div class="hero-meta">
+        <span>Bringing together</span>
+        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly">
+        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/lfl.svg" alt="LegalforLandlords">
+        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/landlord-lounge-768x281.webp" alt="Landlord Lounge">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="wrap grid">
+      <div class="reveal">
+        <p class="eyebrow">The problem</p>
+        <h2>Would you still understand this tenancy two years from now?</h2>
+        <p style="margin-top:28px">A reference is completed. An agreement is signed. A gas safety certificate is served. The keys are handed over.</p>
+        <p>Two years later the rent slips, a claim is challenged or the landlord wants the property back. The documents may still exist — but what they prove may no longer be clear.</p>
+        <p>Disconnected systems, repeated data entry and endless chasing make it harder to move a tenancy forward, and harder still to stand behind it later.</p>
+      </div>
+      <div class="reveal">
+        <div class="stat">
+          <b>86.6%</b>
+          <small>of references required additional evidence before a tenancy could progress.</small>
+        </div>
+        <div class="bars">
+          <div class="bar"><div><span>Proof of income or employment</span><span>65.1%</span></div><i style="--w:65.1%"></i></div>
+          <div class="bar"><div><span>Bank statements</span><span>53.2%</span></div><i style="--w:53.2%"></i></div>
+          <div class="bar"><div><span>ID or Right to Rent documents</span><span>32.3%</span></div><i style="--w:32.3%"></i></div>
+          <div class="bar"><div><span>Proof of address</span><span>27.8%</span></div><i style="--w:27.8%"></i></div>
+          <div class="bar"><div><span>Self-employment or tax documents</span><span>12.1%</span></div><i style="--w:12.1%"></i></div>
+        </div>
+        <p class="src">Source: Propoly referencing data.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="journey" id="journey">
+    <div class="wrap">
+      <div class="journey-head reveal">
+        <p class="eyebrow">One rental relationship. Eight stages.</p>
+        <h2>What happens at one stage shapes what's possible at the next.</h2>
+        <p>Landlord · Property · Tenancy · Tenant · Through time</p>
+      </div>
+
+      <div class="phase reveal">
+        <h3>Before <em>the keys.</em></h3>
+        <div class="stages">
+          <div class="stage"><span class="n">01</span><h4>Tenancy Progression</h4><p>From holding deposit to signed agreement, monies, deposit and handover.</p></div>
+          <div class="stage"><span class="n">02</span><h4>Tenancy Referencing</h4><p>Identity, Right to Rent, affordability, credit history and conditions to proceed.</p></div>
+          <div class="stage"><span class="n">03</span><h4>Compliance &amp; Evidence</h4><p>Certificates, prescribed information and service records — right and provable.</p></div>
+          <div class="stage"><span class="n">04</span><h4>Insurance &amp; Protection</h4><p>Protect the tenancy while the facts and risk position are current.</p></div>
+        </div>
+      </div>
+
+      <div class="phase reveal">
+        <h3>Beyond <em>the keys.</em></h3>
+        <div class="stages">
+          <div class="stage"><span class="n">05</span><h4>Rent Review</h4><p>Market evidence, tenancy history and timing behind the annual rent decision.</p></div>
+          <div class="stage"><span class="n">06</span><h4>Legal &amp; Possession</h4><p>Early intervention, evidence readiness and specialist judgement when it gets difficult.</p></div>
+          <div class="stage"><span class="n">07</span><h4>Claims &amp; Protection</h4><p>Policy terms, notifications and tenancy history tested when protection is called on.</p></div>
+          <div class="stage"><span class="n">08</span><h4>Insights</h4><p>Regulatory and market change turned into practical briefings for agents and landlords.</p></div>
+        </div>
+      </div>
+
+      <p class="keys-note reveal">The keys are a handover moment in the relationship — not a boundary in the intelligence.</p>
+    </div>
+  </section>
+
+  <!-- GROUP -->
+  <section class="group">
+    <div class="wrap">
+      <div class="group-head reveal">
+        <div>
+          <p class="eyebrow">The Group</p>
+          <h2>Specialist roles. One connected relationship.</h2>
+        </div>
+        <p>The name is new. The work behind it is not. Each business has a clear role — together they cover more of the rental relationship than any one system.</p>
+      </div>
+      <div class="brands">
+        <article class="brand reveal">
+          <div class="logo"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/propoly.svg" alt="Propoly"></div>
+          <p class="tag">Tenancy operations</p>
+          <h3>From application to move-in.</h3>
+          <p>Propoly helps your team progress tenancies, manage compliance and create a clear record from day one.</p>
+          <ul><li>Tenancy progression</li><li>Compliance</li><li>Digital record</li></ul>
+        </article>
+        <article class="brand reveal">
+          <div class="logo"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/lfl.svg" alt="LegalforLandlords"></div>
+          <p class="tag">Specialist services</p>
+          <h3>Expertise when it matters.</h3>
+          <p>Referencing, protection, insurance, claims and Professional Services when a reference, claim or difficult tenancy needs a specialist.</p>
+          <ul><li>Referencing</li><li>Rent &amp; legal protection</li><li>Claims</li><li>Possession</li></ul>
+        </article>
+        <article class="brand reveal">
+          <div class="logo"><img src="https://riggroup.co.uk/wp-content/uploads/2026/10/landlord-lounge-768x281.webp" alt="Landlord Lounge"></div>
+          <p class="tag">For your landlords</p>
+          <h3>A home beyond move-in.</h3>
+          <p>Property information, compliance, documents and practical guidance in one place — keeping your landlords informed and engaged.</p>
+          <ul><li>Landlord portal</li><li>Documents</li><li>Guidance</li></ul>
+        </article>
+        <article class="brand astra reveal">
+          <div class="logo"><span class="wordmark">Astra</span></div>
+          <p class="tag">AI &amp; automation</p>
+          <h3>Less routine. Clearer next steps.</h3>
+          <p>The Group's AI layer — cutting repetitive admin, bringing what needs attention into view and freeing your team for relationships and decisions.</p>
+          <ul><li>Automation</li><li>Practical AI</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF (placeholder — fill in later) -->
+  <section class="proof">
+    <div class="wrap grid">
+      <div class="reveal">
+        <p class="eyebrow">Recognised in their own markets</p>
+        <blockquote class="quote">“The best tenancy progression platform by far.”</blockquote>
+        <p class="quote-by">Jones Robinson, Propoly customer</p>
+      </div>
+      <div class="awards reveal">
+        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/estas-propoly-236x300.webp" alt="ESTAS Best in Sector — Propoly">
+        <img src="https://riggroup.co.uk/wp-content/uploads/2026/10/estas-lfl-236x300.webp" alt="ESTAS Best in Sector — LegalforLandlords">
+      </div>
+      <div class="placeholder">Space reserved — case studies, client logos and results to be added.</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="book">
+    <div class="wrap reveal">
+      <p class="eyebrow">Start with what you need</p>
+      <h2>Tell us what you're trying to improve.</h2>
+      <p>Book a short call and we'll bring the right part of the Group into the conversation — no hard sell, just a clear look at where time and risk are going.</p>
+      <a class="btn btn-gold js-book" href="#book">Book a call →</a>
+      <ul>
+        <li>15 minutes</li>
+        <li>Tailored to your agency</li>
+        <li>No obligation</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Rental Intelligence Group</span>
+    <span><a href="https://riggroup.co.uk/" target="_blank" rel="noopener">riggroup.co.uk</a></span>
+  </div>
+</footer>
+
+<script>
+  // ============ EDIT HERE ============
+  // Paste your booking link (Calendly, HubSpot, Microsoft Bookings, etc.)
+  const BOOKING_URL = "https://www.propoly.com/book-a-15-minute-call/";
+
+  if (BOOKING_URL) {
+    document.querySelectorAll(".js-book").forEach(a => {
+      a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener";
+    });
+  }
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  const io = "IntersectionObserver" in window && new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+</script>
+</body>
+</html>
