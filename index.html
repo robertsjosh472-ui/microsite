@@ -56,6 +56,9 @@
   .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 60% at 85% 0%, rgba(185,149,85,.16), transparent 70%); pointer-events: none; }
   .hero .wrap { position: relative; z-index: 1; display: grid; gap: clamp(14px, 2.2svh, 24px); justify-items: center; text-align: center; }
 
+  .prepared { margin: 0 0 -6px; font: 600 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--on-navy-dim); }
+  .prepared b { color: var(--gold); font-weight: 600; }
+  .hero .wrap:has(.prepared:not([hidden])) .video-frame { width: min(100%, max(420px, calc((100svh - 505px) * 16 / 9))); }
   .lockup { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
   .lockup .x { font: 300 30px/1 var(--sans); color: var(--gold); }
   .logo-slot { height: 44px; display: flex; align-items: center; }
@@ -209,6 +212,8 @@
 <main>
   <section class="hero">
     <div class="wrap">
+      <p class="prepared" id="prepared" hidden></p>
+
       <div class="lockup" aria-label="Propoly and your agency">
         <div class="logo-slot"><img src="logos/propoly.svg" alt="Propoly" data-wordmark="Propoly"></div>
         <span class="x" aria-hidden="true">×</span>
@@ -370,6 +375,7 @@
   const COMPANY_LOGO = "";   // path or link to their logo, e.g. "logos/bentley-hurst.svg"
   const BOOKING_URL  = "https://www.propoly.com/dale";
   const VIDEO_URL    = "";   // YouTube, Vimeo or Loom link, or a direct .mp4 link
+  const PREPARED_FOR = "";   // optional, e.g. "Jason Jones · Associate Director of Lettings, Bridges". Empty hides the line.
   // ===================================
 
   let company = COMPANY_NAME;
@@ -393,6 +399,8 @@
     document.querySelectorAll(".js-company-h").forEach(el => el.textContent = company + " ");
   }
 
+
+  if (PREPARED_FOR) { const el = document.getElementById("prepared"); el.innerHTML = "Prepared for <b></b>"; el.querySelector("b").textContent = PREPARED_FOR; el.hidden = false; }
 
   if (BOOKING_URL) document.querySelectorAll(".js-book").forEach(a => { a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener"; });
 
